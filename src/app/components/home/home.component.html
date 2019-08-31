@@ -1,0 +1,27 @@
+<ActionBar title="Todo Application" class="action-bar"></ActionBar>
+<StackLayout class="layout-class">
+    <Label text="My Todos" class="h2" margin="10 20"></Label>
+    <TextField [(ngModel)]="todo.title" hint="Event" padding="20" margin="0 20" text=""></TextField>
+    <TextField [(ngModel)]="todo.description" hint="Description" padding="20" margin="0 20" text=""></TextField>
+    <TextField [(ngModel)]="todo.startDate" hint="Start Date" padding="20" margin="0 20" text=""></TextField>
+    <TextField [(ngModel)]="todo.endDate" hint="End Date" padding="20" margin="0 20" text=""></TextField>
+    <Button text="Add Event" class="btn btn-primary h3" padding="20" color="white"></Button>
+    <StackLayout>
+        <ScrollView height="550">
+            <ListView [items]="todos" class="list-group">
+                <ng-template let-todo="item" let-i="index">
+                    <StackLayout class="list-group-item">
+                        <Label text="{{ todo.title | uppercase}}" color="blue" class="h2 font-weight-bold"
+                            margin="0 20"></Label>
+                        <Label text="{{ todo.description }}" class="body" margin="5 20"></Label>
+                        <FlexboxLayout flexDirection="row" justifyContent="space-between">
+                            <Label text="{{ todo.startDate | date }}" class="h3" margin="0 20"></Label>
+                            <Label text="{{ todo.endDate | date }}" class="h3" margin="0 20"></Label>
+                            <Label class="fas" style="margin-top: 10px" text="&#xf013;"></Label>
+                        </FlexboxLayout>
+                    </StackLayout>
+                </ng-template>
+            </ListView>
+        </ScrollView>
+    </StackLayout>
+</StackLayout>
